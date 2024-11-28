@@ -19,7 +19,7 @@ class MainWindow(QMainWindow):
         self.connect_events()
 
         self.workDir = None
-        self.saveDir = self.workDir
+        self.saveDir = None
 
         self.reworkImage = ImageProcessor()
 
@@ -37,12 +37,12 @@ class MainWindow(QMainWindow):
 
     def choiceFolder(self):
         workDir = QFileDialog.getExistingDirectory()
-        self.saveDir = workDir
         return workDir
 
     def choseSaveFile(self):
         #pathFile, _ = QFileDialog.getSaveFileName(self, "Зберегти файл як")
-        path = os.path.join(self.workDir)
+        # pathImage = self.reworkImage.saveImage()
+        pathImage = self.reworkImage.saveImage()
     
     def showListFilename(self):
         extensions = [".jpg", ".jpeg", ".png", ".gif", ".bmp"]
